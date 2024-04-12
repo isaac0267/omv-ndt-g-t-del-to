@@ -1,46 +1,30 @@
+let min = 1;
+let max = 100;
 let currentGuess;
+
 document.addEventListener("DOMContentLoaded", () => {
-  // her vi skal vælge en element hvor vi skal vise en besked.
-  const messageElment = document.querySelector("#message");
+  const messageElement = document.querySelector("message");
 
-  // Here vi skal tilføje en event listener til knapper.
-
-  document.querySelector("#low").addEventListener("click", () => {
-    handleLow(messageElment);
+  document.querySelector("low").addEventListener("clikc", () => {
+    // here vi skal lave en funktion som skal håndtere når en funktion er
+    // lave
   });
 
-  document.querySelector("#high").addEventListener("click", () => {
-    handleHigh(messageElment);
+  document.querySelector("high").addEventListener("click", () => {
+    // her vi skal lave den funktion som skal håndtere den som højt funktion
   });
 
-  document.querySelector("#correct").addEventListener("click", () => {
-    handleCorrect(messageElment);
+  document.querySelector("correct").addEventListener("clcik",()=>{
+   // her vi skal lave den anden funktion som vi skal for at håndtere en 
+   // korrekt funktion  
   });
-
-  // her vi kalde på den først funktion
-
-  generateGuess();
-  displayGuess(messageElment);
 });
 
-function generateGuess() {
-  currentGuess = Math.trunc(Math.random() * 100) + 1;
-}
+// her vi skal lave disse funktion som skal være ansvarlig at håndtere ting 
 
-function displayGuess(messageElment) {
-  // vise det nuværende gæt tal til brugen
+  // den funktion den ansvalige for at genret vores gæt 
+  function genretGuess(){
+    // Vi skal opdatæer vores gæt til at være midpunkt mellem min og max 
+    currentGuess=Math.trunc((min+max)/2);
+  }
 
-  messageElment.textContent = `Er ${currentGuess} dit tal?`;
-}
-
-function handleLow(messageElment) {
-  generateGuess();
-  displayGuess(messageElment);
-}
-function handleHigh(messageElment) {
-  generateGuess();
-  displayGuess(messageElment);
-}
-function handleCorrect(messageElment) {
-  messageElment.textContent = `Er ${currentGuess} er korrekt`;
-}
